@@ -104,6 +104,14 @@ int main(int argc, char *argv[])
     SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00, 0x00, 0xff);
     SDL_RenderRect(gRenderer, &legendRect);
 
+    // SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00, 0x00, 0xff)
+    for (int i = 0; i < legendRect.w; i += 4) {
+      SDL_RenderPoint(gRenderer, legendRect.x + i, legendRect.y + legendRect.h/2);
+    }
+    for (int i = 0; i < legendRect.h; i += 4) {
+      SDL_RenderPoint(gRenderer, legendRect.x + legendRect.w/2, legendRect.y + i);
+    }
+
     SDL_RenderPresent(gRenderer);
   }
 
